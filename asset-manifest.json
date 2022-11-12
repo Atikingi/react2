@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/react-alfa/static/css/main.f003ee53.css",
+    "main.js": "/react-alfa/static/js/main.43fa3649.js",
+    "index.html": "/react-alfa/index.html",
+    "main.f003ee53.css.map": "/react-alfa/static/css/main.f003ee53.css.map",
+    "main.43fa3649.js.map": "/react-alfa/static/js/main.43fa3649.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f003ee53.css",
+    "static/js/main.43fa3649.js"
+  ]
+}
