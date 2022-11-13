@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/react-alfa/static/css/main.f003ee53.css",
-    "main.js": "/react-alfa/static/js/main.32d1930e.js",
+    "main.css": "/react-alfa/static/css/main.9cf72c9d.css",
+    "main.js": "/react-alfa/static/js/main.e23c20c5.js",
     "index.html": "/react-alfa/index.html",
-    "main.f003ee53.css.map": "/react-alfa/static/css/main.f003ee53.css.map",
-    "main.32d1930e.js.map": "/react-alfa/static/js/main.32d1930e.js.map"
+    "main.9cf72c9d.css.map": "/react-alfa/static/css/main.9cf72c9d.css.map",
+    "main.e23c20c5.js.map": "/react-alfa/static/js/main.e23c20c5.js.map"
   },
   "entrypoints": [
-    "static/css/main.f003ee53.css",
-    "static/js/main.32d1930e.js"
+    "static/css/main.9cf72c9d.css",
+    "static/js/main.e23c20c5.js"
   ]
 }
