@@ -17,8 +17,8 @@ import styles from './style.module.css';
 
 type Props = {
   id: string;
-  first_name: string;
-  last_name: string;
+  firstName: string;
+  lastName: string;
   username: string;
   email: string;
   avatar: string;
@@ -29,8 +29,8 @@ type Props = {
 
 const UserCard = ({
   id,
-  first_name,
-  last_name,
+  firstName,
+  lastName,
   username,
   email,
   avatar,
@@ -68,7 +68,7 @@ const UserCard = ({
       <div className={styles.row}>
         <UserInfo
           tooltipPosition="left"
-          text={`${first_name} ${last_name}`}
+          text={`${firstName} ${lastName}`}
           description="Name"
         >
           <FaRegUser className={styles.icon} />
@@ -83,8 +83,8 @@ const UserCard = ({
         </UserInfo>
         <UserAvatar
           avatar={avatar}
-          first_name={first_name}
-          last_name={last_name}
+          firstName={firstName}
+          lastName={lastName}
         />
         <UserInfo tooltipPosition="right" text={age} description="Age">
           <BsFillCalendarDateFill className={styles.icon} />

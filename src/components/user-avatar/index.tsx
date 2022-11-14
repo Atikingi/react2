@@ -1,27 +1,35 @@
+import classnames from "classnames";
 import { Loader } from '@alfalab/core-components/loader';
 import React, { useState } from 'react';
 import styles from './style.module.css';
 
 type Props = {
   avatar: string;
-  first_name: string;
-  last_name: string;
+  firstName: string;
+  lastName: string;
 };
 
-const UserAvatar = ({ avatar, first_name, last_name }: Props) => {
+const UserAvatar = ({ avatar, firstName, lastName }: Props) => {
   const [imageLoaded, setImageLoaded] = useState(false);
+
+  const imageWrapperClass = classnames(styles.imageWrapper, {[styles.imageShow]: imageLoaded});
+  const loaderWrapperClass = classnames(styles.loaderWrapper, {[styles.loaderHidden]: imageLoaded});
+
+  const imageLoadedHandler = () => {
+      setImageLoaded(true)
+  }
 
   return (
     <div className={styles.avatarWrapper}>
-      <div style={{ display: imageLoaded ? 'none' : 'block' }}>
+      <div className={loaderWrapperClass}>
         <Loader />
       </div>
-      <div style={{ display: imageLoaded ? 'block' : 'none' }}>
+      <div className={imageWrapperClass}>
         <img
           className={styles.avatar}
           src={avatar}
-          alt={`${first_name} ${last_name}`}
-          onLoad={() => setImageLoaded(true)}
+          alt={`${firstName} ${lastName}`}
+          onLoad={imageLoadedHandler}
         />
       </div>
     </div>

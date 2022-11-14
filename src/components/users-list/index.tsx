@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react';
 import UserCard from '../user-card';
 import { Spinner } from '@alfalab/core-components/spinner';
-import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../../store/store';
+import { useSelector } from 'react-redux';
 import { UserProps } from '../../store/reducers/types';
 import { fetchData } from '../../store/actions/thunks/app';
 import {
@@ -11,28 +10,29 @@ import {
   getLoadingStatus,
 } from '../../store/selectors/app';
 import styles from './style.module.css';
+import {useAppDispatch} from "../../store/store";
 
 const UsersList = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
-  const users = useSelector((state: RootState) => getAllUsers(state));
-  const isLoading = useSelector((state: RootState) => getLoadingStatus(state));
-
-  const isFiltered = useSelector((state: RootState) =>
-    getFilteredStatus(state)
-  );
+  const users = useSelector(getAllUsers);
+  const isLoading = useSelector(getLoadingStatus);
+  const isFiltered = useSelector(getFilteredStatus);
 
   useEffect(() => {
-    dispatch(fetchData() as any);
+    dispatch(fetchData());
   }, []);
 
   return (
-    <div className={isLoading ? styles.loader : styles.container} data-test-id='users-list'>
+    <div
+      className={isLoading ? styles.loader : styles.container}
+      data-test-id="users-list"
+    >
       {isLoading ? (
-        <Spinner visible={true} size="m" data-test-id='loader'/>
+        <Spinner visible={true} size="m" data-test-id="loader" />
       ) : (
         users
-          .filter((user) => (isFiltered ? user.favorite : user))
+          .filter((user: UserProps) => (isFiltered ? user.favorite : user))
           .map(
             ({
               login,
@@ -46,8 +46,8 @@ const UsersList = () => {
               <UserCard
                 key={login.uuid}
                 id={login.uuid}
-                first_name={name.first}
-                last_name={name.last}
+                firstName={name.first}
+                lastName={name.last}
                 email={email}
                 avatar={picture.large}
                 age={dob.age}

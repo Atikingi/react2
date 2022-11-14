@@ -4,18 +4,25 @@ import {
   fetchAppSuccess,
   fetchAppError,
 } from '../creators/app';
-import { Dispatch } from '@reduxjs/toolkit';
 import { API_URL } from '../../../constants/constants';
-import { UserProps } from '../../reducers/types';
+import { CommonThunkAction } from '../../store';
+import {UserProps} from "../../reducers/types";
 
-export const fetchData = () => async (dispatch: Dispatch) => {
-  dispatch(fetchAppStarted());
+const addFavoriteProperty = (usersArray: UserProps[]) => {
+  usersArray.map((user: UserProps) => (user.favorite = false))
+}
+
+export const fetchData = (): CommonThunkAction => async (dispatch) => {
+  dispatch(fetchAppStarted())
 
   try {
-    axios.get(`${API_URL}?results=6`).then(({ data }) => {
-      data.results.map((user: UserProps) => (user.favorite = false));
-      dispatch(fetchAppSuccess(data.results));
-    });
+    const response = await axios.get(`${API_URL}?results=6`);
+    const { results } = response?.data;
+
+    if (results) {
+      addFavoriteProperty(results);
+      dispatch(fetchAppSuccess(results));
+    }
   } catch (error) {
     dispatch(fetchAppError(error));
   }

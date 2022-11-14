@@ -1,6 +1,6 @@
 import { RootState } from '../store';
 
-export const getAllUsers = (store: RootState) => store.app.data;
+export const getAllUsers = (state: RootState) => state.app.data;
 
 export const getLoadingStatus = (store: RootState) => store.app.loading;
 

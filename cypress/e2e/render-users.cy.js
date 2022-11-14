@@ -4,7 +4,7 @@ describe('render users from API', () => {
     cy.intercept('GET', 'https://randomuser.me/api/?results=6').as('getUsers');
   });
 
-  it('should be render users cards with buttons', () => {
+  it('should render users cards with buttons', () => {
     cy.wait('@getUsers');
 
     cy.get('[data-test-id="user-card"]').should('have.length', 12);

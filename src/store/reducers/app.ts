@@ -19,7 +19,7 @@ type ActionsProps =
   | ToggleFavorite
   | FilteredData;
 
-export type StateProps = {
+type StateProps = {
   loading: boolean;
   error: string | null;
   data: UserProps[];

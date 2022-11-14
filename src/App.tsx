@@ -9,10 +9,10 @@ function App() {
   return (
     <div className={styles.container}>
       <Header />
-      <div className={styles.hr} />
+      <div className={styles.line} />
       <UserFilter />
       <UserListContainer />
-      <div className={styles.hr} />
+      <div className={styles.line} />
       <Footer />
     </div>
   );
