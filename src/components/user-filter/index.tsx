@@ -2,13 +2,13 @@ import { Switch } from '@alfalab/core-components/switch';
 import { Button } from '@alfalab/core-components/button';
 import { Typography } from '@alfalab/core-components/typography';
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
 import { clearData, filteredData } from '../../store/actions/creators/app';
 import { fetchData } from '../../store/actions/thunks/app';
 import styles from './style.module.css';
+import {useAppDispatch} from "../../store/store";
 
 const UserFilter = () => {
-  const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
   const [checked, setChecked] = useState(false);
 
@@ -19,7 +19,7 @@ const UserFilter = () => {
 
   const showMoreUsers = () => {
     dispatch(clearData());
-    dispatch(fetchData() as any);
+    dispatch(fetchData());
   };
 
   return (
