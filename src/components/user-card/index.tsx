@@ -14,6 +14,7 @@ import { deleteUser, toggleFavorite } from '../../store/actions/creators/app';
 import { useDispatch } from 'react-redux';
 import React, { useState } from 'react';
 import styles from './style.module.css';
+import classNames from 'classnames';
 
 type Props = {
   id: string;
@@ -22,7 +23,7 @@ type Props = {
   username: string;
   email: string;
   avatar: string;
-  age: number;
+  age: string;
   city: string;
   phoneNumber: string;
 };
@@ -51,19 +52,25 @@ const UserCard = ({
     dispatch(deleteUser(id));
   };
 
+  const favoriteStarClass = classNames(styles.star, {
+    [styles.starActive]: isFavorite,
+  });
+
   return (
-    <figure id={id} className={styles.card} data-test-id='user-card'>
+    <figure id={id} className={styles.card} title="User card">
       <AiTwotoneDelete
         className={styles.deleteIcon}
         size="28"
         onClick={onDeleteClick}
-        data-test-id='delete-button'
+        title="delete"
+        data-testid="delete"
       />
       <AiTwotoneStar
-        className={isFavorite ? styles.starActive : styles.star}
+        className={favoriteStarClass}
         size="28"
         onClick={onStarClick}
-        data-test-id='favorite-button'
+        title="add"
+        data-testid="add"
       />
       <div className={styles.row}>
         <UserInfo
@@ -81,11 +88,7 @@ const UserCard = ({
         <UserInfo tooltipPosition="top" text={email} description="Email">
           <AiFillMail className={styles.icon} />
         </UserInfo>
-        <UserAvatar
-          avatar={avatar}
-          firstName={firstName}
-          lastName={lastName}
-        />
+        <UserAvatar avatar={avatar} firstName={firstName} lastName={lastName} />
         <UserInfo tooltipPosition="right" text={age} description="Age">
           <BsFillCalendarDateFill className={styles.icon} />
         </UserInfo>

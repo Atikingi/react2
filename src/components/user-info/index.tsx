@@ -7,7 +7,7 @@ import styles from './style.module.css';
 
 type Props = {
   tooltipPosition: Position;
-  text: string | number;
+  text: string;
   description: string;
   children: ReactNode;
 };

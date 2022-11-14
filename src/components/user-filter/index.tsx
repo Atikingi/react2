@@ -2,13 +2,13 @@ import { Switch } from '@alfalab/core-components/switch';
 import { Button } from '@alfalab/core-components/button';
 import { Typography } from '@alfalab/core-components/typography';
 import React, { useState } from 'react';
-import { clearData, filteredData } from '../../store/actions/creators/app';
+import { filteredData } from '../../store/actions/creators/app';
 import { fetchData } from '../../store/actions/thunks/app';
 import styles from './style.module.css';
-import {useAppDispatch} from "../../store/store";
+import { useAppDispatch } from '../../store/store';
 
-const UserFilter = () => {
-    const dispatch = useAppDispatch();
+const Filter = () => {
+  const dispatch = useAppDispatch();
 
   const [checked, setChecked] = useState(false);
 
@@ -18,20 +18,18 @@ const UserFilter = () => {
   };
 
   const showMoreUsers = () => {
-    dispatch(clearData());
     dispatch(fetchData());
   };
 
   return (
     <div className={styles.wrapper}>
-      <Button view="primary" onClick={showMoreUsers} data-test-id='refresh-button'>
+      <Button view="primary" onClick={showMoreUsers}>
         Refresh
       </Button>
       <Switch
         checked={checked}
         onChange={handleChange}
         reversed={true}
-        data-test-id='switch-favorite'
         label={
           <Typography.Title tag="div" view="xsmall" color="accent">
             {checked ? 'Show all' : 'Show favorite'}
@@ -42,4 +40,4 @@ const UserFilter = () => {
   );
 };
 
-export default UserFilter;
+export default Filter;

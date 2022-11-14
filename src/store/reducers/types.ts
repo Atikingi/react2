@@ -55,7 +55,7 @@ type Login = {
 
 type DateOfBirth = {
   date: string;
-  age: number;
+  age: string;
 };
 
 type Registered = {

@@ -3,17 +3,19 @@ import {
   fetchAppStarted,
   fetchAppSuccess,
   fetchAppError,
+  clearData,
 } from '../creators/app';
 import { API_URL } from '../../../constants/constants';
 import { CommonThunkAction } from '../../store';
-import {UserProps} from "../../reducers/types";
+import { UserProps } from '../../reducers/types';
 
 const addFavoriteProperty = (usersArray: UserProps[]) => {
-  usersArray.map((user: UserProps) => (user.favorite = false))
-}
+  usersArray.map((user: UserProps) => (user.favorite = false));
+};
 
 export const fetchData = (): CommonThunkAction => async (dispatch) => {
-  dispatch(fetchAppStarted())
+  dispatch(clearData());
+  dispatch(fetchAppStarted());
 
   try {
     const response = await axios.get(`${API_URL}?results=6`);

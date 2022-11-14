@@ -4,7 +4,7 @@ import styles from './style.module.css';
 
 const UsersListContainer = () => {
   return (
-    <section className={styles.container} data-test-id='users-container'>
+    <section className={styles.container} data-test-id="users-container">
       <UsersList />
     </section>
   );

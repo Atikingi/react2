@@ -6,12 +6,13 @@ const Header = () => {
   return (
     <header className={styles.header}>
       <Typography.Title tag="h1" color="secondary" className={styles.title}>
-        Test work for Alfa-bank
+        Test project for Alfa-bank
       </Typography.Title>
-      <a href='/react-alfa'>
+      <a href="/">
         <img
           src="/react-alfa/img/alfa-logo.png"
-          width={200}
+          width="200"
+          height="130"
           alt="Alfa-bank"
           className={styles.logo}
         />

@@ -19,14 +19,14 @@ type ActionsProps =
   | ToggleFavorite
   | FilteredData;
 
-type StateProps = {
+type State = {
   loading: boolean;
   error: string | null;
   data: UserProps[];
   filtered: boolean;
 };
 
-const initialState: StateProps = {
+const initialState: State = {
   loading: false,
   error: null,
   data: [],
@@ -36,7 +36,7 @@ const initialState: StateProps = {
 export default function appReducer(
   state = initialState,
   action: ActionsProps
-): StateProps {
+): State {
   switch (action.type) {
     case AppActionTypes.FETCH_DATA_STARTED: {
       return {
@@ -45,7 +45,7 @@ export default function appReducer(
       };
     }
     case AppActionTypes.FETCH_DATA_SUCCESS: {
-      return <StateProps>{
+      return <State>{
         ...state,
         error: null,
         loading: false,

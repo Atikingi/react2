@@ -1,7 +1,7 @@
 import React from 'react';
 import UserListContainer from './components/users-list-container';
 import Header from './components/header';
-import UserFilter from './components/user-filter';
+import Filter from './components/user-filter';
 import Footer from './components/footer';
 import styles from './App.module.css';
 
@@ -10,7 +10,7 @@ function App() {
     <div className={styles.container}>
       <Header />
       <div className={styles.line} />
-      <UserFilter />
+      <Filter />
       <UserListContainer />
       <div className={styles.line} />
       <Footer />

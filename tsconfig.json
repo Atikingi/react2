@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "types": ["cypress", "@testing-library/cypress"],
     "target": "es5",
     "plugins": [{ "name": "typescript-plugin-css-modules" }],
     "lib": [
@@ -24,6 +25,6 @@
   "include": [
     "src",
     "global.d.ts",
-    "cypress"
+    "cypress",
   ]
 }

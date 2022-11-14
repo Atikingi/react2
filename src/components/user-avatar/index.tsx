@@ -1,4 +1,4 @@
-import classnames from "classnames";
+import classnames from 'classnames';
 import { Loader } from '@alfalab/core-components/loader';
 import React, { useState } from 'react';
 import styles from './style.module.css';
@@ -12,12 +12,16 @@ type Props = {
 const UserAvatar = ({ avatar, firstName, lastName }: Props) => {
   const [imageLoaded, setImageLoaded] = useState(false);
 
-  const imageWrapperClass = classnames(styles.imageWrapper, {[styles.imageShow]: imageLoaded});
-  const loaderWrapperClass = classnames(styles.loaderWrapper, {[styles.loaderHidden]: imageLoaded});
+  const imageWrapperClass = classnames(styles.imageWrapper, {
+    [styles.imageShow]: imageLoaded,
+  });
+  const loaderWrapperClass = classnames(styles.loaderWrapper, {
+    [styles.loaderHidden]: imageLoaded,
+  });
 
-  const imageLoadedHandler = () => {
-      setImageLoaded(true)
-  }
+  const handleImageLoad = () => {
+    setImageLoaded(true);
+  };
 
   return (
     <div className={styles.avatarWrapper}>
@@ -29,7 +33,7 @@ const UserAvatar = ({ avatar, firstName, lastName }: Props) => {
           className={styles.avatar}
           src={avatar}
           alt={`${firstName} ${lastName}`}
-          onLoad={imageLoadedHandler}
+          onLoad={handleImageLoad}
         />
       </div>
     </div>
