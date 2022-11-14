@@ -4,7 +4,7 @@ describe('static ui', () => {
   });
 
   it('displays static ui elements', () => {
-    cy.contains('Refresh');
-    cy.contains('Show favorite');
+    cy.findByText('Refresh');
+    cy.findByText('Show favorite');
   });
 });
