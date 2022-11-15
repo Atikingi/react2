@@ -16,7 +16,7 @@ describe('users cards actions', () => {
       .should('have.css', 'color', 'rgb(60, 76, 93)');
   });
 
-  it('should delete card then click delete button', () => {
+  it('should delete card when delete button was clicked', () => {
     cy.findAllByTestId('delete').as('deleteButton');
     cy.findAllByTitle('User card').should('have.length', '6').as('userCard');
 
@@ -33,8 +33,7 @@ describe('users cards actions', () => {
     cy.get('@switchToFavoriteButton').click();
     cy.get('@userCard').should('have.length', 1);
 
-    cy.findByText('Show all').as('switchToAllButton');
-    cy.get('@switchToAllButton').click();
+    cy.findByText('Show all').click();
     cy.get('@userCard').should('have.length', 12);
   });
 
